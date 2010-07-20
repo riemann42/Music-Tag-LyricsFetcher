@@ -1,0 +1,16 @@
+--- #YAML:1.0
+name:                Music-Tag-LyricsFetcher
+version:             0.03
+abstract:            Music::Tag plugin to use Lyrics::Fetcher
+license:             perl
+author:              
+    - Edward Allen <ealleniii@cpan _dot_ org>
+generated_by:        ExtUtils::MakeMaker version 6.42
+distribution_type:   module
+requires:     
+    Lyrics::Fetcher:               0.005
+    Lyrics::Fetcher::LeosLyrics:   0.01
+    Music::Tag:                    0.26
+meta-spec:
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
