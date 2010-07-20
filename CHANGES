@@ -1,0 +1,20 @@
+    Release Name: 0.4
+        *   Changed license to explicitly include GPL
+
+        *   Started using Pod::Readme
+
+    Release Name: 0.3 2008/02/22
+        *   Improved test
+
+        *   Now requires Lyrics::Fetcher::LeosLyrics
+
+        *   Fixed type-o in Synopsis
+
+    Release Name: 0.2 2008/02/21
+        *   Fixed default_options method
+
+        *   Kwalitee changes
+
+    Release Name: 0.1 2008/02/10
+        *   Initial Public Release
+

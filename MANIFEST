@@ -1,4 +1,4 @@
-Changes
+CHANGES
 eg/printlyrics.pl
 lib/Music/Tag/LyricsFetcher.pm
 Makefile.PL
@@ -7,4 +7,6 @@ README
 t/1-lyrics.t
 t/2-pod.t
 t/3-pod-coverage.t
+Copying
+Artistic
 META.yml                                 Module meta-data (added by MakeMaker)
