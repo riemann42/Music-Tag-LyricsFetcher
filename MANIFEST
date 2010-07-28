@@ -9,4 +9,3 @@ t/2-pod.t
 t/3-pod-coverage.t
 Copying
 Artistic
-META.yml                                 Module meta-data (added by MakeMaker)

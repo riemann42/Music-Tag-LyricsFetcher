@@ -11,7 +11,7 @@ my $tag = Music::Tag->new( undef,  { artist => "Sarah Slean",
 								     title => "Eliot",
 									 ANSIColor => 0,
 									 quiet => 1,
-									 lyricsfetchers	=> "LeosLyrics",
+									 lyricsfetchers	=> "LyricWiki",
 								   } , "Option" );
 
 ok( $tag, 'Object created');
