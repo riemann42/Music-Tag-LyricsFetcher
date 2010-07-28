@@ -1,7 +1,7 @@
 package Music::Tag::LyricsFetcher;
-our $VERSION = 0.04;
+our $VERSION = 0.40_01;
 
-# Copyright (c) 2008 Edward Allen III. Some rights reserved.
+# Copyright (c) 2008, 2010 Edward Allen III. Some rights reserved.
 
 #
 # You may distribute under the terms of either the GNU General Public
@@ -9,6 +9,49 @@ our $VERSION = 0.04;
 #
 
 
+use strict;
+use warnings;
+
+use Lyrics::Fetcher;
+use base qw(Music::Tag::Generic);
+
+sub default_options {{
+	'lyricsoverwrite' => 0,
+	'lyricsfetchers' => undef,
+}}
+
+sub get_tag {
+    my $self = shift;
+    unless ( $self->info->artist && $self->info->title ) {
+        $self->status("Lyrics lookup requires ARTIST and TITLE already set!");
+        return;
+    }
+    if ( $self->info->lyrics && not $self->options->{lyricsoverwrite} ) {
+        $self->status("Lyrics already in tag");
+    }
+    else {
+        my $lyrics = Lyrics::Fetcher->fetch($self->info->artist, $self->info->title, $self->options->{lyricsfetchers});
+		if (($Lyrics::Fetcher::Error eq "OK") && ($lyrics)) {
+            my $lyricsl = $lyrics;
+            $lyricsl =~ s/[\r\n]+/ \/ /g;
+            $self->tagchange( "Lyrics", substr( "$lyricsl", 0, 50 ) . "..." );
+            $self->info->lyrics($lyrics);
+            $self->info->changed(1);
+        }
+        else {
+            $self->status("Lyrics not found: ", $Lyrics::Fetcher::Error);
+        }
+    }
+    return $self;
+}
+
+sub set_values {
+	return qw(lyrics);
+}
+
+1;
+
+__END__
 =pod
 
 =for changes stop
@@ -74,44 +117,6 @@ Artist and Title are required to be set before using this plugin.
 
 =item lyrics
 
-=cut
-
-use strict;
-use warnings;
-
-use Lyrics::Fetcher;
-our @ISA = qw(Music::Tag::Generic);
-
-sub default_options {{
-	'lyricsoverwrite' => 0,
-	'lyricsfetchers' => undef,
-}}
-
-sub get_tag {
-    my $self = shift;
-    unless ( $self->info->artist && $self->info->title ) {
-        $self->status("Lyrics lookup requires ARTIST and TITLE already set!");
-        return;
-    }
-    if ( $self->info->lyrics && not $self->options->{lyricsoverwrite} ) {
-        $self->status("Lyrics already in tag");
-    }
-    else {
-        my $lyrics = Lyrics::Fetcher->fetch($self->info->artist, $self->info->title, $self->options->{lyricsfetchers});
-		if (($Lyrics::Fetcher::Error eq "OK") && ($lyrics)) {
-            my $lyricsl = $lyrics;
-            $lyricsl =~ s/[\r\n]+/ \/ /g;
-            $self->tagchange( "Lyrics", substr( "$lyricsl", 0, 50 ) . "..." );
-            $self->info->lyrics($lyrics);
-            $self->info->changed(1);
-        }
-        else {
-            $self->status("Lyrics not found: ", $Lyrics::Fetcher::Error);
-        }
-    }
-    return $self;
-}
-
 =pod
 
 =back
@@ -145,6 +150,10 @@ Not used by this plugin.
 =item get_tag
 
 Uses Lyrics::Fetcher to fetch lyrics and add to object.
+
+=item set_values
+
+Returns lyrics
 
 =back
 
@@ -228,6 +237,14 @@ Initial Public Release
 
 =for readme continue
 
+=head1 SOURCE
+
+Source is available at github: L<http://github.com/riemann42/Music-Tag-LyricsFetcher|http://github.com/riemann42/Music-Tag-LyricsFetcher>.
+
+=head1 BUGTRACKING
+
+Please use github for bug tracking: L<http://github.com/riemann42/Music-Tag-LyricsFetcher/issues|http://github.com/riemann42/Music-Tag-LyricsFetcher/issues>.
+
 =head1 AUTHOR 
 
 Edward Allen III <ealleniii _at_ cpan _dot_ org>
@@ -260,8 +277,4 @@ along with this program in the file named "Copying". If not, write to the
 Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
 Boston, MA 02110-1301, USA or visit their web page on the Internet at
 http://www.gnu.org/copyleft/gpl.html.
-
-=cut
-
-1;
 
