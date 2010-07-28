@@ -1,3 +1,12 @@
+	Release Name: 0.40_01
+		*	Normalized version number with other core plugins
+
+		*	Started using git and github
+
+		*	Added set_values method to meet 0.40_01 requirements
+
+		*	Revised test to use any available lyrics plugin
+
     Release Name: 0.4
         *   Changed license to explicitly include GPL
 

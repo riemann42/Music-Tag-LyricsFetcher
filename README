@@ -23,6 +23,14 @@ DEPENDENCIES
         Lyrics::Fetcher::AZLyrics
         Lyrics::Fetcher::AstraWeb
 
+SOURCE
+    Source is available at github:
+    http://github.com/riemann42/Music-Tag-LyricsFetcher.
+
+BUGTRACKING
+    Please use github for bug tracking:
+    http://github.com/riemann42/Music-Tag-LyricsFetcher/issues.
+
 AUTHOR
     Edward Allen III <ealleniii _at_ cpan _dot_ org>
 

@@ -161,79 +161,9 @@ Returns lyrics
 
 Let me know.
 
-=head1 SEE ALSO INCLUDED
+=head1 SEE ALSO
 
-L<Music::Tag>, L<Music::Tag::Lyrics>
-
-=head1 CHANGES
-
-=for changes continue
-
-=over 4
-
-=item Release Name: 0.4
-
-=over 4
-
-=item * 
-
-Changed license to explicitly include GPL
-
-=item *
-
-Started using Pod::Readme
-
-=back
-
-=begin changes
-
-=item Release Name: 0.3  2008/02/22
-
-=over 4
-
-=item * 
-
-Improved test
-
-=item * 
-
-Now requires Lyrics::Fetcher::LeosLyrics
-
-=item * 
-
-Fixed type-o in Synopsis
-
-=back
-
-=item Release Name: 0.2  2008/02/21
-
-=over 4
-
-=item * 
-
-Fixed default_options method
-
-=item * 
-
-Kwalitee changes
-
-=back
-
-=item Release Name: 0.1  2008/02/10
-
-=over 4
-
-=item * 
-
-Initial Public Release
-
-=back
-
-=end changes
-
-=back
-
-=for changes stop
+L<Music::Tag>
 
 =for readme continue
 
@@ -251,7 +181,7 @@ Edward Allen III <ealleniii _at_ cpan _dot_ org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007,2008 Edward Allen III. Some rights reserved.
+Copyright (c) 2007,2008,2010 Edward Allen III. Some rights reserved.
 
 =head1 LICENSE
 
