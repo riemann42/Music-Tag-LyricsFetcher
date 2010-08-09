@@ -1,5 +1,7 @@
 package Music::Tag::LyricsFetcher;
-our $VERSION = 0.40_01;
+use strict;
+use warnings;
+our $VERSION = 0.40_02;
 
 # Copyright (c) 2008, 2010 Edward Allen III. Some rights reserved.
 
@@ -9,8 +11,6 @@ our $VERSION = 0.40_01;
 #
 
 
-use strict;
-use warnings;
 
 use Lyrics::Fetcher;
 use base qw(Music::Tag::Generic);
@@ -171,7 +171,7 @@ L<Music::Tag>
 
 Source is available at github: L<http://github.com/riemann42/Music-Tag-LyricsFetcher|http://github.com/riemann42/Music-Tag-LyricsFetcher>.
 
-=head1 BUGTRACKING
+=head1 BUG TRACKING
 
 Please use github for bug tracking: L<http://github.com/riemann42/Music-Tag-LyricsFetcher/issues|http://github.com/riemann42/Music-Tag-LyricsFetcher/issues>.
 
