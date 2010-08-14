@@ -22,7 +22,7 @@ sub default_options {{
 
 sub get_tag {
     my $self = shift;
-    unless ( $self->info->artist && $self->info->title ) {
+    unless ( $self->info->has_data('artist') && $self->info->has_data('title') ) {
         $self->status("Lyrics lookup requires ARTIST and TITLE already set!");
         return;
     }
@@ -30,12 +30,12 @@ sub get_tag {
         $self->status("Lyrics already in tag");
     }
     else {
-        my $lyrics = Lyrics::Fetcher->fetch($self->info->artist, $self->info->title, $self->options->{lyricsfetchers});
+        my $lyrics = Lyrics::Fetcher->fetch($self->info->get_data('artist'), $self->info->get_data('title'), $self->options->{lyricsfetchers});
 		if (($Lyrics::Fetcher::Error eq "OK") && ($lyrics)) {
             my $lyricsl = $lyrics;
             $lyricsl =~ s/[\r\n]+/ \/ /g;
             $self->tagchange( "Lyrics", substr( "$lyricsl", 0, 50 ) . "..." );
-            $self->info->lyrics($lyrics);
+            $self->info->set_data('lyrics',$lyrics);
             $self->info->changed(1);
         }
         else {
