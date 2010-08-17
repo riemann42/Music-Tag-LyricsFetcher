@@ -1,16 +1,11 @@
 package Music::Tag::LyricsFetcher;
-use strict;
-use warnings;
-our $VERSION = 0.40_02;
+use strict; use warnings; use utf8;
+our $VERSION = '.4101';
 
-# Copyright (c) 2008, 2010 Edward Allen III. Some rights reserved.
-
+# Copyright © 2008,2010 Edward Allen III. Some rights reserved.
 #
 # You may distribute under the terms of either the GNU General Public
 # License or the Artistic License, as specified in the README file.
-#
-
-
 
 use Lyrics::Fetcher;
 use base qw(Music::Tag::Generic);
@@ -159,7 +154,7 @@ Returns lyrics
 
 =head1 BUGS
 
-Let me know.
+Please use github for bug tracking: L<http://github.com/riemann42/Music-Tag-LyricsFetcher/issues|http://github.com/riemann42/Music-Tag-LyricsFetcher/issues>.
 
 =head1 SEE ALSO
 
@@ -171,17 +166,13 @@ L<Music::Tag>
 
 Source is available at github: L<http://github.com/riemann42/Music-Tag-LyricsFetcher|http://github.com/riemann42/Music-Tag-LyricsFetcher>.
 
-=head1 BUG TRACKING
-
-Please use github for bug tracking: L<http://github.com/riemann42/Music-Tag-LyricsFetcher/issues|http://github.com/riemann42/Music-Tag-LyricsFetcher/issues>.
-
 =head1 AUTHOR 
 
 Edward Allen III <ealleniii _at_ cpan _dot_ org>
 
 =head1 COPYRIGHT
 
-Copyright (c) 2007,2008,2010 Edward Allen III. Some rights reserved.
+Copyright © 2007,2008,2010 Edward Allen III. Some rights reserved.
 
 =head1 LICENSE
 
