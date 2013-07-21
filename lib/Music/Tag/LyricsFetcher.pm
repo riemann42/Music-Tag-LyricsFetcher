@@ -62,7 +62,7 @@ Music::Tag::LyricsFetcher - Plugin module for Music::Tag to fetch lyrics use Lyr
 	use Music::Tag;
 
 	my $info = Music::Tag->new($filename, { quiet => 1 });
-	$info->add_plugin("Lyrics");
+	$info->add_plugin("LyricsFetcher");
 	$info->get_tag();
    
 	print "Lyrics are ", $info->lyrics;
